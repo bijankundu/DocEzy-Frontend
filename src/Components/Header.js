@@ -36,6 +36,7 @@ import {
   ModalCloseButton,
 } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { Link as Linkto  } from 'react-router-dom'
 
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 
@@ -71,7 +72,9 @@ export default function Header() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>DocEzy</Box>
+            <Linkto to={'/'}>
+              <Box>DocEzy</Box>
+            </Linkto>
             <HStack
               as={'nav'}
               spacing={4}
