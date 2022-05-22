@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Flex, Text, VStack, HStack, Spacer, Button } from "@chakra-ui/react";
+import { Box, Image, Flex, Text, VStack, HStack, Spacer } from "@chakra-ui/react";
 import { FaLaptopHouse, FaMicroscope, FaClinicMedical } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
