@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Flex, Text, VStack, HStack, Spacer, Button } from "@chakra-ui/react";
+import { Box, Image, Flex, Text, VStack, HStack, Spacer, Button, Tag } from "@chakra-ui/react";
 import { FaLaptopHouse, FaMicroscope, FaClinicMedical } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -10,10 +10,12 @@ import hairfallIcon from "./../assets/hairfall.jpg";
 import jointPainIcon from "./../assets/joint-pain.jpg";
 import stomachacheIcon from "./../assets/stomachache.jpg";
 import toothacheIcon from "./../assets/toothache.jpg";
+import Banner from "./images/Banner.png";
 
 export default function Body() {
   return (
     <VStack>
+      <Image  p={"8"} w={"90%"} h={"590px"} borderRadius={"50px"} src={Banner}></Image>
       <HStack align={"center"} justify={"space-between"} w={"full"} px={{ lg: 16, base: 8 }} my={10}>
         <Link to={"Consult"}>
           <VStack
@@ -42,7 +44,7 @@ export default function Body() {
             </HStack>
           </VStack>
         </Link>
-        <Spacer w={8} />
+        <Spacer w={3} />
 
         <VStack
           w={300}
@@ -54,7 +56,7 @@ export default function Body() {
           align="center"
           justify={"center"}
         >
-          <HStack spacing={6}>
+          <HStack p={6}>
             <FaClinicMedical size={"5em"} color={"purple"} />
             <Spacer w={3} />
             <VStack align={"left"}>
@@ -65,6 +67,7 @@ export default function Body() {
                 <Text Text fontSize={"14px"} fontWeight="semibold" color="#787887">
                   Find Doctors near you
                 </Text>
+                <Tag mt={3} colorScheme={'red'}>Coming Soon</Tag>
               </Flex>
             </VStack>
           </HStack>
@@ -82,7 +85,7 @@ export default function Body() {
           align="center"
           justify={"center"}
         >
-          <Flex p={10}>
+          <HStack p={6}>
             <FaMicroscope size={"5em"} color={"purple"} />
             <Spacer w={3} />
             <VStack align={"left"}>
@@ -90,12 +93,13 @@ export default function Body() {
                 Lab Test
               </Text>
               <Flex wrap={"wrap"}>
-                <Text fontSize={"14px"} fontWeight="semibold" color="#787887">
+                <Text Text fontSize={"14px"} fontWeight="semibold" color="#787887">
                   Lab Tests at Home
                 </Text>
+                <Tag mt={3} colorScheme={'red'}>Coming Soon</Tag>
               </Flex>
             </VStack>
-          </Flex>
+          </HStack>
         </VStack>
       </HStack>
 

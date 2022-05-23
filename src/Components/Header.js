@@ -24,6 +24,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Image,
   
 } from '@chakra-ui/react';
 import {
@@ -37,10 +38,11 @@ import {
 } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { Link as Linkto  } from 'react-router-dom'
+import DocEzy from "./images/DocEzy.png";
 
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 
-const Links = ['Book Appointment', 'Book Lab Test', 'Medicines', 'Video Consult', 'COVID-19'];
+const Links = ['Book Appointment', 'Book Lab Test', 'Medicines', 'Video Consult', 'Call for Ambulance'];
 
 const NavLink = ({ children }) => (
   <Link
@@ -73,7 +75,7 @@ export default function Header() {
           />
           <HStack spacing={8} alignItems={'center'}>
             <Linkto to={'/'}>
-              <Box>DocEzy</Box>
+              <Image p={1} w={20} h={10} src={DocEzy}></Image>
             </Linkto>
             <HStack
               as={'nav'}
@@ -85,16 +87,26 @@ export default function Header() {
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-            <Button
-              variant={'solid'}
-              colorScheme={'teal'}
-              size={'sm'}
-              mr={4}
-              leftIcon={<AddIcon />}>
-              To Be Decided
-            </Button>
+            <Linkto to={"/Login"}>
+              <Button
+                variant={'solid'}
+                // colorScheme={'red'}
+                size={'md'}
+                mr={4}>
+                Login
+              </Button>
+            </Linkto>
+            <Linkto to={"/Signup"}>
+              <Button
+                variant={'solid'}
+                colorScheme={'red'}
+                size={'md'}
+                mr={4}>
+                Signup
+              </Button>
+            </Linkto>
             <Menu>
-              <MenuButton
+              {/* <MenuButton
                 as={Button}
                 rounded={'full'}
                 variant={'link'}
@@ -106,7 +118,7 @@ export default function Header() {
                     'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
                   }
                 />
-              </MenuButton>
+              </MenuButton> */}
               <MenuList>
                 
                 <VStack>
