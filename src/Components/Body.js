@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Flex, Text, VStack, HStack, Spacer, Button, Tag } from "@chakra-ui/react";
+import { Box, Image, Flex, Text, VStack, HStack, Spacer, Tag } from "@chakra-ui/react";
 import { FaLaptopHouse, FaMicroscope, FaClinicMedical } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ import Banner from "./images/Banner.png";
 export default function Body() {
   return (
     <VStack>
-      <Image  p={"8"} w={"90%"} h={"590px"} borderRadius={"50px"} src={Banner}></Image>
+      <Image p={"8"} w={"90%"} h={"590px"} borderRadius={"50px"} src={Banner}></Image>
       <HStack align={"center"} justify={"space-between"} w={"full"} px={{ lg: 16, base: 8 }} my={10}>
         <Link to={"Consult"}>
           <VStack
@@ -67,7 +67,9 @@ export default function Body() {
                 <Text Text fontSize={"14px"} fontWeight="semibold" color="#787887">
                   Find Doctors near you
                 </Text>
-                <Tag mt={3} colorScheme={'red'}>Coming Soon</Tag>
+                <Tag mt={3} colorScheme={"red"}>
+                  Coming Soon
+                </Tag>
               </Flex>
             </VStack>
           </HStack>
@@ -96,7 +98,9 @@ export default function Body() {
                 <Text Text fontSize={"14px"} fontWeight="semibold" color="#787887">
                   Lab Tests at Home
                 </Text>
-                <Tag mt={3} colorScheme={'red'}>Coming Soon</Tag>
+                <Tag mt={3} colorScheme={"red"}>
+                  Coming Soon
+                </Tag>
               </Flex>
             </VStack>
           </HStack>

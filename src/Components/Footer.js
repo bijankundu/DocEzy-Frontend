@@ -1,6 +1,4 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { ReactNode } from "react";
 import {
   Box,
   Container,
@@ -14,8 +12,6 @@ import {
 } from "@chakra-ui/react";
 import { FaTwitter, FaYoutube, FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 
-//import AppStoreBadge from '@/components/AppStoreBadge';
-//import PlayStoreBadge from '@/components/PlayStoreBadge';
 
 const ListHeader = ({ children }) => {
   return (
