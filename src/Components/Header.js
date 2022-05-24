@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Flex,
@@ -16,10 +16,15 @@ import {
   Stack,
   VStack,
 } from "@chakra-ui/react";
+import { Link as Linkto, useNavigate } from "react-router-dom";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { io } from "socket.io-client";
+import { useSelector, useDispatch } from "react-redux";
 
-import { Link as Linkto } from "react-router-dom";
-
-import { HamburgerIcon, CloseIcon, AddIcon } from "@chakra-ui/icons";
+import { userStateSelector, resetUserDetails } from "../store/userSlice";
+import { setSocket, socketStateSelector } from "./../store/socketSlice";
+import { useAutoLogin } from "./../api/userService";
+import brandLogo from "./../assets/brand-logo.svg";
 
 const Links = ["Book Appointment", "Book Lab Test", "Medicines", "Video Consult", "Call for Ambulance"];
 
@@ -40,11 +45,38 @@ const NavLink = ({ children }) => (
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate = useNavigate();
+  const user = useSelector(userStateSelector);
+  const { autoLogin } = useAutoLogin();
+  const dispatch = useDispatch();
+  const { socket } = useSelector(socketStateSelector);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token && Object.keys(user).length === 0) {
+      autoLogin();
+    } else if (Object.keys(user).length === 0) {
+      navigate("/login");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  useEffect(() => {
+    if (Object.keys(user).length !== 0 && !socket) {
+      const customSocket = io("http://localhost:8008");
+      dispatch(setSocket(customSocket));
+    }
+
+    return () => {
+      if (socket) socket.disconnect();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   return (
     <>
       <Box bg={"purple.50"} px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        <Flex alignItems={"center"} justifyContent={"space-between"} py={4}>
           <IconButton
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -54,7 +86,7 @@ export default function Header() {
           />
           <HStack spacing={8} alignItems={"center"}>
             <Linkto to={"/"}>
-              <Image p={1} w={20} h={10} src={DocEzy}></Image>
+              <Image src={brandLogo} h={10} />
             </Linkto>
             <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
               {Links.map((link) => (

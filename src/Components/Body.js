@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Flex, Text, VStack, HStack, Spacer, Tag } from "@chakra-ui/react";
+import { Box, Image, Flex, Text, VStack, HStack, Spacer, Tag, chakra } from "@chakra-ui/react";
 import { FaLaptopHouse, FaMicroscope, FaClinicMedical } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -10,29 +10,28 @@ import hairfallIcon from "./../assets/hairfall.jpg";
 import jointPainIcon from "./../assets/joint-pain.jpg";
 import stomachacheIcon from "./../assets/stomachache.jpg";
 import toothacheIcon from "./../assets/toothache.jpg";
-import Banner from "./images/Banner.png";
+import HomeBanner from "./HomeBanner";
 
 export default function Body() {
   return (
     <VStack>
-      <Image p={"8"} w={"90%"} h={"590px"} borderRadius={"50px"} src={Banner}></Image>
-      <HStack align={"center"} justify={"space-between"} w={"full"} px={{ lg: 16, base: 8 }} my={10}>
+      <HomeBanner />
+      <HStack align={"center"} justify={"space-between"} w={"full"} px={{ lg: 16, base: 8 }} py={20}>
         <Link to={"Consult"}>
           <VStack
-            w={300}
+            w={350}
             h={150}
             border={"1px"}
             borderRadius="md"
-            borderColor={"violet"}
-            bg="purple.50"
+            borderColor={"brand.900"}
             align="center"
             justify={"center"}
             p={6}
           >
             <HStack spacing={6}>
-              <FaLaptopHouse size={"5em"} color={"purple"} />
+              <FaLaptopHouse size={"5em"} color={"#2926a6"} />
               <VStack align={"left"}>
-                <Text fontWeight={"Bold"} fontSize={"2xl"} color={"purple"}>
+                <Text fontWeight={"Bold"} fontSize={"2xl"} color={"brand.900"}>
                   Video
                 </Text>
                 <Flex wrap={"wrap"} align="center">
@@ -47,30 +46,28 @@ export default function Body() {
         <Spacer w={3} />
 
         <VStack
-          w={300}
+          w={350}
           h={150}
           border={"1px"}
           borderRadius="md"
-          borderColor={"violet"}
-          bg="purple.50"
+          borderColor={"brand.900"}
           align="center"
           justify={"center"}
+          p={6}
         >
-          <HStack p={6}>
-            <FaClinicMedical size={"5em"} color={"purple"} />
+          <HStack spacing={6}>
+            <FaClinicMedical size={"5em"} color={"#2926a6"} />
             <Spacer w={3} />
             <VStack align={"left"}>
-              <Text fontWeight={"Bold"} fontSize={"2xl"} color={"purple"}>
+              <Text fontWeight={"Bold"} fontSize={"2xl"} color={"brand.900"}>
                 Inclinic
               </Text>
-              <Flex wrap={"wrap"}>
+              <VStack wrap={"wrap"} spacing={2} align={"flex-start"}>
                 <Text Text fontSize={"14px"} fontWeight="semibold" color="#787887">
                   Find Doctors near you
                 </Text>
-                <Tag mt={3} colorScheme={"red"}>
-                  Coming Soon
-                </Tag>
-              </Flex>
+                <Tag colorScheme={"brand"}>Comming Soon!</Tag>
+              </VStack>
             </VStack>
           </HStack>
         </VStack>
@@ -78,30 +75,28 @@ export default function Body() {
         <Spacer w={3} />
 
         <VStack
-          w={300}
+          w={350}
           h={150}
           border={"1px"}
           borderRadius="md"
-          borderColor={"violet"}
-          bg="purple.50"
+          borderColor={"brand.900"}
           align="center"
           justify={"center"}
+          p={6}
         >
-          <HStack p={6}>
-            <FaMicroscope size={"5em"} color={"purple"} />
+          <HStack spacing={6}>
+            <FaMicroscope size={"5em"} color={"#2926a6"} />
             <Spacer w={3} />
             <VStack align={"left"}>
-              <Text fontWeight={"Bold"} fontSize={"2xl"} color={"purple"}>
+              <Text fontWeight={"Bold"} fontSize={"2xl"} color={"brand.900"}>
                 Lab Test
               </Text>
-              <Flex wrap={"wrap"}>
-                <Text Text fontSize={"14px"} fontWeight="semibold" color="#787887">
+              <VStack wrap={"wrap"} spacing={2} align={"flex-start"}>
+                <Text fontSize={"14px"} fontWeight="semibold" color="#787887">
                   Lab Tests at Home
                 </Text>
-                <Tag mt={3} colorScheme={"red"}>
-                  Coming Soon
-                </Tag>
-              </Flex>
+                <Tag colorScheme={"brand"}>Comming Soon!</Tag>
+              </VStack>
             </VStack>
           </HStack>
         </VStack>
@@ -115,7 +110,7 @@ export default function Body() {
         </HStack>
       </Flex>
 
-      <VStack px={{ lg: 16, base: 8 }} py={{ lg: 8, base: 4 }}>
+      <VStack px={{ lg: 16, base: 8 }} pt={{ lg: 8, base: 4 }} pb={{ lg: 20, base: 10 }}>
         <Flex wrap={"wrap"} justify={"space-evenly"} gap={"4"}>
           <Link to={"/Doctors"}>
             <Box>
